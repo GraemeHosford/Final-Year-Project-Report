@@ -1,0 +1,101 @@
+\chapter{Introduction}
+\label{chap:intro}
+\lhead{\emph{Introduction}}
+% This chapter should comprise around 1000 words and introduces your project. Here you are setting the scene, remember the reader may know nothing about your project at this stage (other than the abstract). N.B. The sections outlined in this document are suggested, some projects will have a greater or lesser emphasis on different sections or may change titles and some will have to add other sections to provide context or detail.
+% Putting in comments within the TeX file can be really useful in making notes for yourself and dumping text that you intend to edit later
+
+\section{Motivation} \label{motivation}
+% Why is it important to do a project on this topic? This should cover your key motivation for this. For example an excellent student from 2016 noticed a large number of homeless sleeping rough in Cork and was motivated to develop a system that load balanced the homeless shelters to try to accommodate the maximum number of homeless. This section can include the personal pronoun but the rest of the report should be third person passive, this is the case with most technical reports! For example here it is fine to say "... I decided to develop and app to help ...".
+It is important to do a project on this topic as the organisation of events is a time consuming and tedious process particularly when the details for a large scale event must be handled along with the needs of potentially hundreds of people. I decided to develop this app after witnessing these issues occur first hand in the SaaS company Teamwork. 
+
+Each Summer, around June or July, Teamwork organises a week long get together for the whole company, including flying in remote workers to the main offices, with the goal of promoting team building and cross team communication. This week culminates in an activity day followed by a party later that evening.
+
+The organisation of this week took months of work from the HR team to organise flights, accommodation, venues and entertainment for all employees. The initial idea for this app came from the Mobile team lead after a member of the HR team suggested it to him that a single piece of software which would let them track all the required info for these events would have made their task of organising and tracking information much easier. 
+
+While this approach would still require they use different software to organise the individual elements such as a flight booking website, hotel website, etc, they would now be able to enter all this info into a single source of truth thus allowing the easy retrieval of information and preventing any potential confusion which may arise between people checking potentially out of sync information from different sources
+
+% \section{Executive Summary} \label{execsummary}
+% The aim of this project is to provide an event management system with a focus on large scale events provided through a mobile application. This will tackle specific problems associated with these types of events such as tracking accommodation for employees, flights and entertainment among other issues.
+
+% The proposed mobile app will allow users to create/sign into an account using their email, this will just include a basic email sign up, any additions to the user profile such as adding a profile picture or contact info can be added later in the users own time.
+
+% Once the sign up is complete the user can either create a new company or join an existing one. Once this is completed the user can access the main features of the app. Upon the creation of a new company the user who created it will automatically be given the status of admin allowing them the ability to create and edit events and add event specific info to a users profile, any subsequent users who join will have the options to respond to events but cannot create or edit them unless given the status of admin by another who already holds these privileges. A regular user may also edit their own profile info but not that of others. Whether or not a regular user can update info such as hotel bookings will depend on if the admins who manage the event allow for this or if they have decided all details such as this are admin managed only.
+
+% % Need to  decide whether a regular user can view other people's details or not, they should be able to view name, profile picture, contact details etc but unsure about allowing to view specific event details such as where a person is staying, what their flight number is etc
+
+% The main feature will be event creation and management, this includes setting the basic event details such as time, location and description along with inviting and tracking who is attending the event. Also included is the management of people within a particular company, this will include very basic management such as removing people from a company or granting them admin privileges thus allowing them to directly manage events. Most of the focus on people will be on their details in relation to specific events. Looking at a user's profile will show details of the upcoming events that person is invited to or scheduled to attend and include any relevant info such as their accommodation details or flights, if any.
+
+\section{Contribution} \label{contribution}
+% Enumerate the main contributions. Here try to zoom out, to talk from the perspective of a Computer Science graduate. In other words, imagine you are talking to a job panel, and you want to show your computer science skills by enumerating how they are reflected in your project work. A good guide here is to look back over the modules you have covered as an undergrad from 2/3rd year, how many tools and techniques from these modules do you have in the project and to what extent? How have you advanced beyond the module content? Do you have anything new?
+
+From the point of view of a company, for both admins and regular employees using this application the benefits are obvious. 
+
+For company admins all relevant info related to events are kept in one place which limits potential miscommunication when pulling info from different sources and this info can be tightly managed by said admins therefore company events can be created and managed in a more efficient way by reducing the potential for human error.
+
+For the average employee within the company it makes getting the info about an upcoming event far easier, particularly if this employee is a remote worker who is travelling or the event itself is remote. Rather than having to contact whomever is organising an event to get the required info such as location, hotel booking and so on, or vice versa the organiser having to contact each employee to do the same thing, the needed info can be added to this app and employees can check it whenever is convenient and the need for a time consuming back and forth about arbitrary details is removed.
+
+\section{Structure of This Document} \label{docstructure}
+% notice how I cross referenced the chapters through using the \label tag --> LaTeX is VERY similar to HTML and other mark up languages so you should see nothing new here!
+% This section is quite formulaic. Briefly describe the structure of this document, enumerating what does each chapter and section stands for. For instance in this work in Chapter \ref{chap:background} the guidance in structuring the literature review is given. Chapter \ref{chap:problem} describes the main requirements for the problem definition and so on ...
+
+% Chapter \ref{chap:intro} - Introduction
+
+% \begin{itemize}
+%     \item Section \ref{motivation} \textbf{Motivation} -  This section discusses the motivation behind choosing this project.
+
+%     \item Section \ref{execsummary} \textbf{Executive Summary} - This section discusses the broad details of how the project will operate with a brief overview of the expected functionality by the time it is completed.
+
+%     \item Section \ref{contribution} \textbf{Contribution} - This section discusses the contribution this project will make to any potential users in terms of how they organise events.
+
+%     \item Section \ref{docstructure} \textbf{Structure of This Document} - This section outlines the structure used in this report.
+% \end{itemize}
+
+% These will be filled out as I work on them
+
+Chapter \ref{chap:background} - Background
+
+\begin{itemize}
+    \item Section \ref{thematicarea} \textbf{Thematic Area with Computer Science} - This section contains an overview of the core goals of the project and how they relate to computer science.
+
+    % \item Section \ref{projectscope} \textbf{Project Scope} - This section outlines the scope of the project detailing which areas of knowledge a reader of this report should be familiar with and to what degree.
+
+    \item Section \ref{thematicreview} \textbf{Review of the Thematic Area} - This section contains an overview of some already existing products which are similar in scope to this project, including their perceived pros, cons and how this project can improve on it. This section also goes through a review of the thematic area outlined in section \ref{thematicarea}.
+\end{itemize}
+
+Chapter \ref{chap:problem} - Problem - Event Enterprise Manager
+
+\begin{itemize}
+    \item Section \ref{section:problemdefinition} \textbf{Problem Definition} - This section outlines the problem definition being tackled in this project.
+    
+    \item Section \ref{section:objectives} \textbf{Objectives} - This section outlines the objectives of this project.
+    
+    \item Section \ref{section:functionalreq} \textbf{Functional Requirements} - This section outlines the functional requirements for each facet of this project, mobile app, Firebase backend and Ruby backend.
+    
+    \item Section \ref{section:nonfunctionalreq} \textbf{Non-Functional Requirements} - This section outlines the non-functional requirements of this project giving a broad outline of how it will work.
+\end{itemize}
+
+Chapter \ref{chap:implementation} - Implementation Approach
+
+\begin{itemize}
+    \item Section \ref{sec:Arch} \textbf{Architecture} - This section outlines the proposed architecture of the project including the libraries and frameworks to be used, the different aspects of the system, and how all of these will work together.
+    
+    \item Section \ref{section:risks} \textbf{Risk Assessment} - This section outlines the risks which could be faced throughout the development of this project as well as steps which can be taken to mitigate them.
+    
+    \item Section \ref{section:methodology} \textbf{Methodology} - This section outlines the plan to learn any unknown technology and also outlines the agile approach taken to development.
+    
+    \item Section \ref{section:implementationplan} \textbf{Implementation Plan Schedule} - This section outlines the sprint plan for how this project will be developed over the course of semester 2.
+    
+    \item Section \ref{section:evaluation} \textbf{Evaluation} - This section discusses the steps which will be taken to evaluate how well this project achieves its aims.
+    
+    \item Section \ref{section:prototype} \textbf{Prototype} - The prototype section shows a proposed prototype of the entire system.
+\end{itemize}
+
+Chapter \ref{chap:conclusions} - Conclusions and Future Work
+
+\begin{itemize}
+    \item Section \ref{section:discussion} \textbf{Discussion} - The discussion section outlines some of the problems faced during the research phase of this report along with some ideas on how these issues can be reduced for the implementation phase.
+    
+    \item Section \ref{section:conclusion} \textbf{Conclusion} - The conclusion section goes through the main conclusions gained from the problem definition, the background research and the solution approach which has been devised for the implementation phase.
+    
+    \item Section \ref{section:futurework} - \textbf{Future Work} - The section on future work details further work which could have been achieved in this report if not for time constraints during the research phase.
+\end{itemize}

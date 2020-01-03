@@ -1,0 +1,503 @@
+\chapter{Problem - Enterprise Event Manager}
+\label{chap:problem}
+\lhead{\emph{Problem Statement}}
+% The key question to be addressed in this chapter is: "What do I want to achieve".
+
+% This chapter should comprise around 1500 words and describe the problem you are trying to solve. Try to be as specific here as you can, this will help you to anticipate possible risks such as lack of support from APIs.
+
+\section{Problem Definition}
+\label{section:problemdefinition}
+% Describe the problem you are trying to solve in this project. There will sometimes be a need at some point during the report to display an equation that may be core to your project. For example if the project is on gait detection what equation are you using to determine gait? If the project is on localization what is the method/formula? The formatting of these is reliably done in Latex also as we can see in equation \ref{eq:Legrange}.
+
+% \begin{equation}
+% \frac{d}{dt}(\frac{\partial L}{\partial \dot{c_i}})-\frac{\partial L}{\partial c_i}+\frac{\partial P}{\partial \dot{c_i}} = F_i,
+% \label{eq:Legrange}
+% \end{equation}
+
+% Rephrase with focus on problems in process
+
+The problem being tackled in the development of this project stems from the fact that to organise an event many details must be managed by whomever the event organiser is. In the case of large scale event planning, such as with a company, issues which may seem trivial and considered once off problems are magnified tenfold and can now become serious, time-consuming tasks.
+
+To take a seemingly trivial example, if organising an event which includes a sit-down meal. the organiser must gather information on food allergies among the event attendees and pass this on to catering staff. In the worst case the organiser would have to ask all attendees individually if they have any allergies, which granted is an unlikely scenario. However, even in the far better case where each attendee with allergies contacts the organiser to let them know, the event organiser must still go through responses one by one which is a time consuming task.
+
+The best scenario in this case is obviously that there is some online form made available for attendees to put in their allergies. This then acts as a single source of information on food allergies which the organiser can gather the information from. This approach still holds some drawbacks however. 
+
+Firstly a major potential issue is that the following series of events could take place:
+
+\begin{enumerate}
+    \item An online form is provided for attendees of an event to add their allergy information
+    \item All attendees enter their allergy information correctly
+    \item This first event takes place with no problems
+    \item A second event is scheduled and allergy information is required again. The previous information cannot be reused as this event has some new attendees
+    \item It may be assumed that all attendees know how and where to enter their allergy information and so a reminder may not be provided. It could also be the case that an older version of this allergy information is used by mistake through human error
+    \item Believing that they have the correct information the event organiser passes this on to the catering service for the event
+    \item Attendees of this second event who did not attend the first event do not have their allergy information recorded correctly. This could pose a serious health risk to these people if they are given the wrong food
+\end{enumerate}
+
+% Firstly the information gathered from this form can only be reused when it is 100\% certain that there are no new attendees at any future event, in the far more likely case that this is not certain these new attendees would also need to enter their allergy information. This could lead to a scenario in which an older version of this information may be used when preparing food and a new attendee may inadvertently come into contact with something that is potentially a serious health risk for them.
+
+Secondly, unless the information from this form is saved and in some way associated with the person who entered it then for a future event it may be required that attendees enter this information all over again. For multiple events this would quickly become a tiresome, repetitive task for attendees to complete.
+
+This is something that many would likely have considered a trivial detail to get sorted, but as outlined here the task of asking people if they have any food allergies quickly becomes tedious for both organisers and attendees and can potentially have serious consequences for people if the newest information is not used at all times. 
+
+This is obviously a serious issue in the process being used here. A potentially far better solution is one which allows the attendees to input their allergy information within their own profile. Once this is entered the attendee most likely will never have to think about it again thus removing their need to enter the same information over and over. Tied to this could be an option for the event organiser to simply add attendees to an event then with the click of a button be given a list of all attendees and their associated allergies. As long as the event organiser clicks this button to get allergy information on each event, out-of-date information will not be used and each attendee is saved from entering the same information repeatedly. 
+
+While this is still open to human error if the organiser forgets to click the button for the allergy list, when this is done correctly it solves both problems outlined above. Besides this, it would be a lot less likely that an event organiser forgets the allergies when they are provided in the same system as event organisation. It is certainly less likely they will forget in this scenario when compared to them needing to get this information from a separate system.
+
+This is just one detail of many involved in event organisation. Now imagine the many hours of work that must go into organising dozens of other seemingly trivial details for dozens or more people at an event. This time quickly adds up. This workload is not helped by having many sources of information which an organiser must sort through and put together in a clear way in order to make sure mistakes are not made.
+
+\section{Objectives}
+\label{section:objectives}
+% Enumerate the objectives you want to achieve in your project. Again as this is an early stage these will tend to change but there should be a rational explanation for this change. Always document your work, keep a lab book during the term that you only use for FYP!
+
+The objectives behind the development of this mobile-first event management system can be classified under the following points:
+
+\begin{itemize}
+    \item Develop an Android based mobile app which allows users to manage their events and related details.
+    \item Develop a backend Ruby based server which handles notification scheduling and creating IDs for a company.
+    \item Perform the required setup steps for including Firebase in the project such that the Firebase instance successfully integrates with both the Ruby server and the mobile app to allow both to complete their requirements.
+\end{itemize}
+
+The requirements of each of these are outlined in section \ref{section:functionalreq}.
+
+\section{Functional Requirements}
+\label{section:functionalreq}
+% Enumerate the functional requirements you want your project to have. 
+
+% Please, do not include the use cases here. If you want to create a one-to-one mapping between functional requirements and use cases (which does not necessarily need to be the case, indeed most likely this will not be the case) do it elsewhere. Here should purely describe what do you want to do. In no case should you use this section to provide a description of how to implement them, that is for later. For people doing projects that are not heavy implementation projects (e.g. deploying an architecture or testing a novel tool in specific conditions) this structure can still be used as it will force you to think about what you plan to achieve and what possible metrics you may need to measure success.
+
+% Let me explain this with more detail. A common mistake is that people confuse the problem description with the solution approach. This is a common mistake by confusing the \emph{what} with the \emph{how}. Here we are purely focused on the what: What is this project about? What are the objectives? What are the functional and non-functional requirements? 
+
+% How are we going to do all these things? Well, this is a question for next chapter. Provided a problem, an objective or a functional requirement, obviously there will usually be many ways of doing it, thus there will be many \emph{hows}, but the definition, the \emph{what} we want to achieve will be unique.
+
+% One other display structure you may wish to use at some stage during the report is a figure array. This can also be easily done with Latex and is shown in figure \ref{fig:twosuccesskid}
+
+% \begin{figure}
+% \centering     %%% not \center
+% \subfigure[Figure A]{\label{fig:a}\includegraphics[width=0.48\textwidth]{successkid.jpg}}
+% \subfigure[Figure B]{\label{fig:b}\includegraphics[width=0.48\textwidth]{successkid.jpg}}
+% \caption{Two Success kids}
+% \label{fig:twosuccesskid}
+% \end{figure}
+
+The requirements of this project are broken down here between the three different parts which make up this project, the mobile app, the Firebase backend and the Ruby server backend.
+
+\subsection{Mobile App Functional Requirements}
+
+Some features in the mobile app are available to admin users only, these are highlighted as such along with an explanation of why. All features with no such highlight will be available to all users.
+
+\subsubsection{Functional Requirement No. 1}
+
+\textbf{Description}
+
+A user can sign up for an account.
+
+\textbf{Reason}
+
+A user will need to sign up for an account in order to use the system.
+
+\textbf{Fit Criterion}
+
+A new user account is created with the email and password the user entered.
+
+\subsubsection{Functional Requirement No. 2}
+
+\textbf{Description}
+
+A user can sign into their account.
+
+\textbf{Reason}
+
+A user will need to be signed into their already existing account in order to use the system.
+
+\textbf{Fit Criterion}
+
+When successfully signed in a user will have access to the main features of the app (seeing events, creating events, etc).
+
+\subsubsection{Functional Requirement No. 3}
+
+\textbf{Description}
+
+A user can create a new company.
+
+\textbf{Reason}
+
+The idea of a company containing users will need to exist in this app so that the correct users are grouped together and receive the correct information.
+
+\textbf{Fit Criterion}
+
+Once the company is created the user can see and create events. The user who created the company will automatically be an admin user.
+
+\subsubsection{Functional Requirement No. 4}
+
+\textbf{Description}
+
+A user can join a company.
+
+\textbf{Reason}
+
+A user will need to join a company in order to see that company's events.
+
+\textbf{Fit Criterion}
+
+Once a company has been joined the user can see the events being organised by that company.
+
+\subsubsection{Functional Requirement No. 5}
+
+\textbf{Description}
+
+A user can see the list of events they are invited to.
+
+\textbf{Reason}
+
+A user will want to see what events they are invited to and be able to see the details of these events such as time and location. This will include events the user has declined an invitation to attend so that they can change their response later.
+
+\textbf{Fit Criterion}
+
+When a user opens the app and is signed into their account and has joined a company they can see a list of events they are invited to.
+
+\subsubsection{Functional Requirement No. 6}
+
+\textbf{Description}
+
+\textbf{Admin Only Feature} - A user can create an event.
+
+\textbf{Reason}
+
+An admin will want to create an event for the company. 
+
+This is an admin only feature as events which will be considered an official company event should not be open to just anyone to create.
+
+\subsubsection{Functional Requirement No. 7}
+
+\textbf{Description}
+
+\textbf{Admin Only Feature} - A user can add attendees to an event.
+
+\textbf{Reason}
+
+An admin will want to add people to an event.
+
+This is an admin only feature as events intended to have specific attendees should not allow new attendees to be added by unauthorised users.
+
+\textbf{Fit Criterion}
+
+Once added to the event the chosen people are shown in the list of invited attendees.
+
+\subsubsection{Functional Requirement No. 8}
+
+\textbf{Description}
+
+A user can respond to an event invite.
+
+\textbf{Reason}
+
+A user should be able to inform event organisers whether or not they can attend the event.
+
+\textbf{Fit Criterion}
+
+Once a response - either Going or Not Going - has been sent the list of invited attendees will be updated to reflect this response.
+
+\subsubsection{Functional Requirement No. 9}
+% Unsure about this one
+\textbf{Description}
+
+A user can see the list of people within their own company.
+
+\textbf{Reason}
+
+A user will want to see who is in their own company.
+
+\textbf{Fit Criterion}
+
+A user will be able to see a list of all other members of their company.
+
+\subsubsection{Functional Requirement No. 10}
+
+\textbf{Description}
+
+A user can see their own profile.
+
+\textbf{Reason}
+
+A user will want to review the details of their own profile in order to verify the information is correct and inform any decisions on editing their profile information.
+
+\textbf{Fit Criterion}
+
+When the user chooses to see their own profile the correct information as stored in the Firebase backend database is displayed to them.
+
+\subsubsection{Functional Requirement No. 11}
+
+\textbf{Description}
+
+A user can edit their own profile.
+
+\textbf{Reason}
+
+A user will want to edit their own profile and update any desired information such as name, contact details or picture.
+
+\subsubsection{Functional Requirement No. 12}
+
+\textbf{Description}
+
+A user can see the profile of other users
+
+\textbf{Reason}
+
+A user will want to see who else is in their company and also see the provided contact details of that user.
+
+% This is not an admin only feature as regular users may need each others contact details in order to discuss details not strictly relating to the event itself, for example organising a group taxi to and from the event amongst themselves.
+
+\textbf{Fit Criterion}
+
+A user can click on another user from the list of company members and is shown that person's profile.
+
+\subsubsection{Functional Requirement No. 13}
+
+\textbf{Description}
+
+A user receives a notification when invited to an event or as an event reminder.
+
+\textbf{Reason}
+
+A user will want to be kept informed on events they are invited to and will also want appropriate reminders when getting near the time of an event they are attending.
+
+\textbf{Fit Criterion}
+
+When invited to an event a user receives a notification shortly after informing them of this invite. When approaching an upcoming event reminder notifications are pushed to the users device at a selected amount of time before the event starts.
+
+\subsubsection{Functional Requirement No. 14}
+
+\textbf{Description}
+
+\textbf{Admin Only Feature} - An admin can set event specific details for other users.
+
+\textbf{Reason}
+
+An admin will want to set extra information specific to a single event on certain users. For example, times and flight number of flights, location and check-in time at a hotel.
+
+This is an admin only feature as event related expenses which are being paid for by the company should be inputted only by a chosen company representative. Any such expense which is being paid for by the attendee in question is their responsibility and therefore this person should not be allowed to enter those expenses alongside company expenses as this would cause confusion.
+
+\textbf{Fit Criterion}
+
+Once an admin has entered some information for an attendee  of a specific event this information will become visible to the attendee in question.
+
+\subsubsection{Functional Requirement No. 15}
+
+\textbf{Description}
+
+\textbf{Admin Only Feature} - An admin can approve or deny a users request to join a company.
+
+\textbf{Reason}
+
+The system of joining a company will involve entering a simple human-readable series of digits which represent a company on the system. As these IDs will be generated as simple integer values they would be far too easy for a user to guess and join a company they should not.
+
+This is an admin only feature as only admins should be able to approve new company members.
+
+\textbf{Fit Criterion}
+
+Once a user enters the ID in order to join a company they will not have access to company event information until they are approved by an admin.
+
+% Sign up/ sign in - FirebaseAuth takes care of this
+% Create a company
+% Input name, description, choose picture (choose with intents not custom gallery view)
+% Join a company
+% Enter a company ID to join it
+% See list of events I am invited to
+% Create an event
+% Input title, description, location (just text at first, choose from map later)
+% Add attendee(s) to an event
+% Respond to an event - Going or not going
+% Optional provide reason for not going
+% See list of people in my company
+% See my own profile
+% Change name, enter job title, enter contact details, choose/take a picture, enter food requirements (allergies)
+% See profile of other people
+% See name, job title, picture and contact details not including address, food requirements
+% Receive notification when invited to an event
+% Maybe notification actions built in to respond quickly
+% Receive notifications for upcoming events
+% Reminders set by admin(s), too complicated to do custom times so remind options for 1 day before, 1 and 4 hour(s) before and at event start
+% Set event specific user info
+% Set event specific info such as flights, accommodation, etc through list of attendees of an event
+% These options only set by admins
+
+\subsection{Firebase Functional Requirements}
+
+\subsubsection{Functional Requirement No. 16}
+
+\textbf{Description}
+
+FirebaseAuth can create and verify a new user account when one is created through the sign-up process in the mobile app.
+
+\textbf{Reason}
+
+Once an account is created it will need to be verified as containing a valid email and password and also be persisted to allow for repeated use.
+
+\textbf{Fit Criterion}
+
+Once sign up is complete on the mobile app an account with the user specified email and password is created by FirebaseAuth. This account is persisted and a user will not have to create an account again.
+
+\subsubsection{Functional Requirement No. 17}
+
+\textbf{Description}
+
+Event manager information will be persisted to Firebase Cloud Storage.
+
+\textbf{Reason}
+
+Information on user profile, events and company members will need to be persisted to allow for constant access and always with the most up-to-date information.
+
+\textbf{Fit Criterion}
+
+When any information in the mobile app is changed this will be updated on the Firebase Cloud Storage database to reflect these changes. Any other user viewing this information after the changes are applied will see the new information displayed.
+
+\subsection{Ruby Server Functional Requirements}
+
+\subsubsection{Functional Requirement No. 18}
+
+\textbf{Description}
+
+A unique ID is generated for each company created.
+
+\textbf{Reason}
+
+A company will need a unique human-readable ID generated to allow for users to join this company as joining simply by the company name would not be secure or scalable.
+
+\textbf{Fit Criterion}
+
+Once a company has been created a unique ID is returned. When joining a company this ID should successfully allow the user to access the main features of the mobile app once entered.
+
+\subsubsection{Functional Requirement No. 19}
+
+\textbf{Description}
+
+The server will schedule the exact time a notification will be sent.
+
+\textbf{Reason}
+
+Notifications which are event reminders will need to be sent at specific times.
+
+\textbf{Fit Criterion}
+
+A notification which has been scheduled will arrive on a users device at the time specified.
+
+\section{Non-Functional Requirements}
+\label{section:nonfunctionalreq}
+% Enumerate the non-functional requirements you want to achieve in your project (i.e. broadly speaking how your system will operate).
+
+Same as with functional requirements the non-functional requirements are broken down between the various parts of this project.
+
+\subsection{Mobile App Non-Functional Requirements}
+
+\subsubsection{Non-Functional Requirement No. 1}
+
+\textbf{Description}
+
+Setting up a user account should be a quick and easy process.
+
+\textbf{Reason}
+
+Potential users are unlikely to use the app if the initial setup process is slow.
+
+\textbf{Fit Criterion}
+
+A user should be able to create their account within 2 minutes.
+
+\subsubsection{Non-Functional Requirement No. 2}
+
+\textbf{Description}
+
+Creating or joining  a new company should be a quick and easy process.
+
+\textbf{Reason}
+
+Similarly to creating a user account, creating or joining a company should be a quick process as a lengthy setup will leave users frustrated with the experience of using the app.
+
+\textbf{Fit Criterion}
+
+A user should be able to create or join a company within 2 minutes.
+
+\subsubsection{Non-Functional Requirements No. 3}
+
+\textbf{Description}
+
+The app should be easy to navigate.
+
+\textbf{Reason}
+
+A confusing and non-intuitive navigation will leave users frustrated when using this app if they have trouble accessing basic features.
+
+\textbf{Fit Criterion}
+% Should not be much issue as long as standard navigation components and obvious icons and text are used
+
+A user should know how to navigate to any given part of the app after 10 minutes of usage.
+
+\subsubsection{Non-Functional Requirement No. 4}
+
+\textbf{Description}
+
+The user should always see information relevant to the current screen being viewed even during network failure.
+
+\textbf{Reason}
+
+Network failures are unavoidable but showing an empty screen to a user is not at all helpful to them.
+
+\textbf{Fit Criterion}
+
+When new data can not be loaded, previously saved cache data should be displayed instead.
+
+\subsubsection{Non-Functional Requirement No. 5}
+
+\textbf{Description}
+
+Data should be loaded as quickly as possible.
+
+\textbf{Reason}
+
+Slow load times will not provide the user with an enjoyable experience in using the app.
+
+\textbf{Fit Criterion}
+
+It should take no longer than 5 seconds to load data when on a reliable internet connection.
+
+\subsubsection{Non-Functional Requirement No. 6}
+
+\textbf{Description}
+
+The app will work in the same way across all versions of Android from API version 21 and upward.
+
+\textbf{Reason}
+
+Android is an ever changing and evolving system. As part of its continued development there are occasionally non-backward-compatible or breaking changes introduced on new version releases, Google does not have the best track record on informing developers of changes made to existing classes which change how they work on certain versions of the OS.
+
+% An example of this is the Drawable class which is used to handle basic forms of image manipulation in Android development. On the release of version 23 of the SDK this class was no longer backward-compatible with versions 22 and earlier and the class had to be replaced with a new backward-compatible version to continue working as before.
+
+It is therefore important to be careful when using certain classes provided by the Android SDK to ensure that all users have the same experience using the Android app.
+
+\textbf{Fit Criterion}
+
+There should be no difference in look or functionality when using the app on a device with Android version 21 compared to a device using Android version 28.
+% Comparison between these OS versions of 21 and any after 23 are easiest to spot differences in
+
+\subsection{Firebase Non-Functional Requirements}
+
+Firebase is group of third-party libraries providing backend database and authentication support among other features. All non-functional requirements which may exist related to uptime and availability requirements as well as constraints on how quickly the system is updated with newly provided data, are handled by Google and are therefore not under the control of the developer of this project.
+
+\subsection{Ruby Server Non-Functional Requirements}
+
+Similarly to Firebase the server in this case will be one provided by a third-party host therefore constraints on uptime and availability are outside the control of the developer of this project. 
+
+\subsubsection{Non-Functional Requirement No. 7}
+
+\textbf{Description}
+
+The ID generated for a new company will be human-readable and easy to remember.
+
+\textbf{Reason}
+
+The ID which is generated by the server for a new company allowing members to join should be a short and simple to remember sequence allowing for a user to quickly enter it on the Android app. A lengthy string of random characters would not be suitable for this but a numeric sequence of values would. e.g. 00001, 00002, 00003 and so forth.
+
+\textbf{Fit Criterion}
+
+A user should be able to see the ID associated with the company they wish to join and be able to enter it on the Android app without needing to double check that the ID is correct.
