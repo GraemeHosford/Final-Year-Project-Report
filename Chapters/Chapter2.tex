@@ -20,7 +20,7 @@ The core goal of this project is to provide an easy to use mobile app which allo
 
 This system will consist of an Android mobile app front end supported by a Firebase back end to handle most necessary server side features such as database management and sending notifications. This will be supplemented by a Ruby server to handle the few things Firebase cannot do such as scheduling when a notification should be sent and assigning an ID to a company.
 
-The Android app will be the user facing side of the system, allowing for all the features outlined in section\ref{section:functionalreq}.
+The Android app will be the user facing side of the system, allowing for all the features outlined in section \ref{section:functionalreq}.
 
 Firebase will act as the engine to the app by using Firebase Cloud Storage to save all new users, new companies and adding events and their related details, as well as keeping track of all edits done to each of these. Firebase will also take charge of sending notifications to a users device and authenticating new accounts which sign up to the app.
 
@@ -306,6 +306,8 @@ Aside from the sources listed in these tables others may also be referenced for 
 		\hline
 		Review Study of New Era of Android Kotlin & This paper studies the differences between Java and Kotlin and the potential benefits which can be gained from using Kotlin\cite{reviewonandroidkotlin}.\\
 		\hline
+		Architectural Styles and the Design of Network-based Software Architectures & This paper written by Roy Fielding as his Ph.D thesis outlines his concept of a RESTful web architecture which tackled the issues of scalability the web faced at the time\cite{restphdthesis}.\\
+		\hline
     \caption{Research Sources - Conferences, Journals and Academic Papers}
 	\label{conferencesandjournalstable}
 \end{longtable}
@@ -426,7 +428,7 @@ Besides the Google Play Store the Amazon App Store provides basically the same f
   \label{fig:kotlinlogo}
 \end{figure}
 
-Kotlin is a newer language and not currently as well known as many other languages such as Java. While it is not specifically tied to Android development it is heavily used by Android developers around the world with "More than 50\% of professional Android developers now use the language to develop their apps"\cite{googlekotlinfirstref}. Besides just this statistics on Google Play apps have found that "nearly 60\% of the top 1,000 Android apps contain Kotlin code"\cite{60percentkotlinref}. Google themselves have even announced "If you’re starting a new project, you should write it in Kotlin"\cite{googlekotlinfirstref}\cite{androidkotlindevbookkotlinfirst}.
+Kotlin is a newer language and not currently as well known as many other languages such as Java. While it is not specifically tied to Android development it is heavily used by Android developers around the world with "More than 50\% of professional Android developers now use the language to develop their apps"\cite{googlekotlinfirstref}. Besides just this, statistics on Google Play apps have found that "nearly 60\% of the top 1,000 Android apps contain Kotlin code"\cite{60percentkotlinref}. Google themselves have even announced "If you’re starting a new project, you should write it in Kotlin"\cite{googlekotlinfirstref}\cite{androidkotlindevbookkotlinfirst}.
 
 Furthermore according to the conclusions found in "Characterizing the Transition to Kotlin of Android Apps: A Study on F-Droid, Play Store, and GitHub"\cite{androidkotlinstudy}, the uptake of Kotlin in Android projects is summarised by the words "the transition from Java to Kotlin was most of the times fast and unidirectional"\cite{androidkotlinuptake}. In effect, from the 1200+ projects looked at in this study those which featured Kotlin generally had its use growing rather than diminishing and doing so at a relatively quick pace. This is hardly unexpected given the reduction in code that Kotlin allows with "estimates indicate approximately a 40\% cut in the number of lines of code"\cite{kotlinlesscode} among its many other improvements over the Java language.
 
@@ -482,7 +484,9 @@ Originally developed at CERN by scientist Tim Berners Lee\cite{restapidesigntime
 
 Note here that the World Wide Web and the internet are not the same thing despite being incredibly similar. The internet refers to a series of computers linked together worldwide while the World Wide Web refers to the information accessed on the internet. In essence "the Internet is infrastructure while the Web is service on top of that infrastructure"\cite{webinternetdifference}.
 
-These days this idea of instantly accessible information has exploded in popularity, this is hardly surprising given the web as we know it today but even in its infancy there was a popularity to it that was rarely seen in many historical innovations. At one point the number of web users was doubling every two months\cite{restapidesignwebusersreference}. The backbone of the web, and its associated popularity, is the server. A server exists to act as a link in the massive network that is the internet and typically hosts some piece of information.
+These days this idea of instantly accessible information has exploded in popularity, this is hardly surprising given the web as we know it today but even in its infancy there was a popularity to it that was rarely seen in many historical innovations. At one point the number of web users was doubling every two months\cite{restapidesignwebusersreference}. 
+
+The backbone of the web, and its associated popularity, is the server. A server exists to act as a link in the massive network that is the internet and typically hosts some piece of information.
 
 In this project there will technically be two server backends. One of these will be Google Firebase which requires very little setup from the developer. Firebase provides services such as cloud database storage, sending notifications to devices and authenticating users among other things, all with no need to create login forms or database tables. It simply works as an out-of-the-box solution once the minimal setup is completed. Firebase will be discussed in more detail in section \ref{sec:Arch}.
 
@@ -493,3 +497,18 @@ These scenarios include generating an ID for each company which is created and s
 The Ruby server in this project will work as a REST API which sends data in the form of JSON. This will allow for sending data which is as descriptive as needed due to the hierarchical structure of JSON. Key-value pairs are used to make up the JSON data but the 'value' can be anything from lists to nested JSON data rather than just simple text or numbers.
 
 More importantly than the data structure however is the use of a RESTful API to achieve this. By using an API developed on the REST principles there are great gains made in terms of scalability. As described in "RESTful API Design"\cite{restfulapidesign} by Matthias Biehl, REST APIs "are used for building distributed software systems, whose components are loosely coupled"\cite{restfulapidesignbenefits} and when correct standards are followed they are further described as "simple, clean, clear and approachable"\cite{restfulapidesignbenefits}.
+
+This REST system was initially developed by Roy Fielding. In 1993 he set about tackling the issues cropping up in regard to scalability in the web\cite{restapidesignwebusersreference}\cite{restphdthesisscaleproblem}. In addressing this problem he came up with 6 key areas in which the web architecture of that time was not fit for purpose. 
+
+The proposals Fielding came up with are as follows:
+
+\begin{itemize}
+    \item \textbf{Client-Server} - The web should work based on a client-server relationship in which "client and servers have distinct parts to play. They may be implemented and deployed independently, using any language or technology, so long as they conform to the Web's Uniform Interface"\cite{restapidesigwebstandardsreference}. The enforcement of a client-server type relationship in web-based applications essentially amounts to separation of concerns\cite{restphdthesisrestoutline}
+    \item \textbf{Uniform Interface} - "The interactions between the webs components\dots depend on the uniformity of their interfaces. If any of the components stray from the established standards, then the Web's communication system breaks down"\cite{restapidesigwebstandardsreference}. Through a uniform interface between otherwise relatively unrelated components "overall system architecture is simplified"\cite{restphdthesisrestoutline} and "implementations are decoupled from the services they provide, which encourages independent evolvability"\cite{restphdthesisrestoutline}. The downside to this is that "information is transferred in a standardized form rather than one which is specific to an application’s needs"\cite{restphdthesisrestoutline} this in turn leads to a degradation in efficiency
+    \item \textbf{Layered System} - "The layered system constraints enable network-based intermediaries\dots to be transparently deployed between a client and server\dots Network-based intermediaries are commonly used for enforcement of security, response caching and load balancing"\cite{restapidesigwebstandardsreference}
+    \item \textbf{Cache} - "Caching response data can help reduce client-perceived latency, increasing the overall availability and reliability of an application"\cite{restapidesigwebstandardsreference}. In a RESTful system "the data within a response must be implicitly or explicitly labelled as cacheable or non-cacheable"\cite{restphdthesisrestoutline}
+    \item \textbf{Stateless} - "The stateless constraint dictates that a web server is not required to memorize the state of its client applications"\cite{restapidesigwebstandardsreference}. In essence this means all communications "from client to server must contain all the information necessary to understand the request"\cite{restphdthesisrestoutline}
+    \item \textbf{Code-On-Demand} - The Code-On-Demand constraint "enables web servers to temporarily transfer executable programs, such as scripts or plug-ins to clients"\cite{restapidesigwebstandardsreference}
+\end{itemize}
+
+This new web architecture with a focus on scalability was then detailed by Fielding in his Ph.D thesis "Architectural Styles and the Design of Network-based Software Architectures"\cite{restphdthesis} in 2000.
